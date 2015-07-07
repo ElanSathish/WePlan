@@ -20,8 +20,8 @@
   "dependencies": {
     "assetmanager": "latest",
     "async": "latest",
-    "bower": "latest",
     "body-parser": "latest",
+    "bower": "latest",
     "compression": "latest",
     "connect-flash": "latest",
     "consolidate": "latest",
@@ -33,7 +33,7 @@
     "jsonwebtoken": "latest",
     "lodash": "latest",
     "meanio": "latest",
-    "mongoose": "latest",
+    "mongoose": "https://registry.npmjs.org/mongoose/-/mongoose-4.0.5.tgz",
     "morgan": "latest",
     "ms": "latest",
     "nodemailer": "latest",
