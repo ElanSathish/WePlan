@@ -25,6 +25,7 @@
 
 
 <div class = "container" ng-controller="AppCtrl" >
+    <h2>mongoMessage</h2>
     <h1>Contact list App </h1>
         <table class="table" >
             <thead bgcolor="{{test12}}">
@@ -42,6 +43,7 @@
                 <td><input class = "form-control" ng-model="contact.email"></td>
                 <td><input class = "form-control" ng-model="contact.number"></td>
                 <td><Button class = "btn btn-primary" ng-click="addContact()"> Add Contact</Button></td>
+                <td><Button class = "btn btn-primary" ng-click="Delete()">Delete</Button></td>
 
 
             </tr>

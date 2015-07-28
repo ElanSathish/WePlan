@@ -17,6 +17,7 @@
     "test": "npm run mocha && NODE_ENV=test npm run start & sleep 20 && npm run karma",
     "postinstall": "node tools/scripts/postinstall.js"
   },
+
   "dependencies": {
     "assetmanager": "latest",
     "async": "latest",

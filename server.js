@@ -15,13 +15,39 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/contactList');
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+//mongoose.connect('mongodb://localhost/contactList');
+mongoose.connect('mongodb://Elan:contactlist@ds027483.mongolab.com:27483/contactlist');
+
 var db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
-    console.log("yay");
+    console.log("contactList db opened");
 });
 
+
+/*var messageSchema = new Schema({
+    message: String
+});
+
+var Message = mongoose.model('Message', messageSchema, 'messages');
+var mongoMessage;
+
+/!*Message.findOne().exec(function (err, messageDoc){
+    mongoMessage = messageDoc.message;
+});*!/
+
+app.get('*', function(req, res){
+    console.log("I received request for HTML")
+    Message.find({}, function(err, docs){
+        mongoMessage = docs.message ;
+
+        console.log(mongoMessage);
+        res.json(docs);
+});
+    });*/
 /*
 mongoose.model('contact', new Schema({
     name: String,
@@ -43,14 +69,16 @@ var Contacts = mongoose.model('Contacts', contactListSchema, 'contactList');
 app.use(express.static(__dirname + '/app'));
 app.use(bodyParser.json());
 
-app.get('/contactList', function(req, res){
+app.get('/contactList', function(req, res) {
 
     console.log("I received GET request")
-    Contacts.find({}, function(err, docs){
+    Contacts.find({}, function (err, docs) {
         console.log(docs);
         res.json(docs);
 
     });
+
+});
 app.post('/contactList', function(req, res){
     var newContacts = new Contacts({
         name: req.body.name,
@@ -63,29 +91,46 @@ app.post('/contactList', function(req, res){
     });
 });
 
-   /*
-   //Temporary data stored in the server
 
-   var person1 = {
-        name: 'Elan',
-        email: '@gnail',
-        number: '111-1111'
-    };
+       /* app.delete('/contactList/:id', function(req, res) {
+            Contacts.remove({
+                _id : req.params.id
+            }, function(err, docs) {
+                if (err)
+                    res.send(err);
 
-    var person2 = {
-        name: 'Sathish',
-        email: '@yahoo',
-        number: '222-1111'
-    };
+                // get and return all the todos after you create another
+               // Todo.find(function(err, docs) {
+                    if (err)
+                        res.send(err)
+                    res.json(docs);
+                });
+            });
+        });*/
 
-    var person3 = {
-        name: 'Theeran',
-        email: '@outlook',
-        number: '333-1111'
-    };
-    var contactList = [person1, person2, person3];
-    res.json(contactList);*/
-});
+        /*
+        //Temporary data stored in the server
+
+        var person1 = {
+             name: 'Elan',
+             email: '@gnail',
+             number: '111-1111'
+         };
+
+         var person2 = {
+             name: 'Sathish',
+             email: '@yahoo',
+             number: '222-1111'
+         };
+
+         var person3 = {
+             name: 'Theeran',
+             email: '@outlook',
+             number: '333-1111'
+         };
+         var contactList = [person1, person2, person3];
+         res.json(contactList);*/
+
 /*
 //Just to check if the server is responding properly
 app.get('/', function(req, res){
@@ -93,8 +138,9 @@ app.get('/', function(req, res){
 
 });*/
 
-app.listen(3000);
-console.log("Server remaining on port 3000");
+var port = process.env.DEFAULT_PORT || 3030;
+app.listen(3030);
+console.log("Server remaining on port 3030");
 
 /* Requires meanio .
 var mean = require('meanio');
