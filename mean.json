@@ -1,6 +1,12 @@
 {
     "dependencies": {},
+<<<<<<< HEAD
     "anonymizedData": false,
     "name": "WePlan",
     "id": "55881690f366e3a837e9af25"
+=======
+    "anonymizedData": true,
+    "name": "zzz",
+    "id": "55b794f96068afa56306313e"
+>>>>>>> 2c1395d0d64f72dc1446c49bab19f3438ffb07e8
 }
